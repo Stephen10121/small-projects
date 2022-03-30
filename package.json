@@ -1,0 +1,27 @@
+{
+  "name": "small-projects",
+  "version": "1.0.0",
+  "description": "Small Projects",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stephen10121/small-projects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stephen10121/small-projects/issues"
+  },
+  "homepage": "https://github.com/Stephen10121/small-projects#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
