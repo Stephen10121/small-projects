@@ -1,0 +1,12 @@
+.center-element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reset-button-style {
+  cursor: pointer;
+}
+
+/* html {
+  font-size: 10px;
+} */

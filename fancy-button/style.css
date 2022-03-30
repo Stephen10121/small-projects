@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+:root {
+  --button-color: #494949;
+  --button-load-color: #9436e0;
+  --button-animation-time: 2s;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #dfdfdf;
+  overflow: hidden;
+}
+
+.fancy-button {
+  padding: 1rem 3rem;
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.fancy-button::before {
+  content: "✔";
+  font-size: 0;
+  font-weight: 800;
+  height: 1rem;
+  background-color: var(--button-load-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.fancy-button:focus {
+  animation: button-animation var(--button-animation-time) linear forwards;
+}
+
+.fancy-button:not(:focus) {
+  animation: button-unanimation var(--button-animation-time) linear forwards;
+}
+
+.fancy-button:focus::before {
+  width: 10rem;
+  animation: button-load var(--button-animation-time) linear forwards;
+}
+
+.fancy-button:not(:focus)::before {
+  animation: button-unload var(--button-animation-time) linear forwards;
+}
+
+@keyframes button-animation {
+  0% {
+    padding: 2.5rem 7.5rem;
+    font-size: 0;
+  }
+  2% {
+    padding: 3rem 7.5rem;
+  }
+  15% {
+    padding: 0.5rem 10rem;
+  }
+  29% {
+    background-color: var(--button-color);
+  }
+  30% {
+    padding: 0.5rem 10rem;
+    background-color: var(--button-color);
+  }
+  40% {
+    padding: 3rem 3rem;
+    background-color: var(--button-color);
+    border-radius: 10px;
+  }
+  43% {
+    padding: 3rem 3rem;
+    background-color: var(--button-color);
+    border-radius: 50%;
+  }
+  99% {
+    padding: 3rem 3rem;
+    background-color: var(--button-color);
+    border-radius: 50%;
+  }
+  100% {
+    padding: 3rem 3rem;
+    background-color: var(--button-color);
+    border-radius: 50%;
+    font-size: 0;
+  }
+}
+
+@keyframes button-unanimation {
+  100% {
+    padding: 1rem 3rem;
+    font-size: 2rem;
+  }
+  70% {
+    padding: 1rem 3rem;
+    font-size: 2rem;
+  }
+  69% {
+    font-size: 0;
+    padding: 2.5rem 7.5rem;
+  }
+  50% {
+    padding: 0.5rem 10rem;
+  }
+  43% {
+    padding: 0.5rem 10rem;
+  }
+  40% {
+    background-color: var(--button-color);
+  }
+  30% {
+    padding: 0.5rem 10rem;
+    background-color: var(--button-color);
+  }
+  29% {
+    padding: 3rem 3rem;
+    background-color: var(--button-color);
+    border-radius: 10px;
+  }
+  15% {
+    padding: 3rem 3rem;
+    background-color: var(--button-color);
+    border-radius: 50%;
+  }
+  2% {
+    padding: 3rem 3rem;
+    background-color: var(--button-color);
+    border-radius: 50%;
+  }
+  0% {
+    padding: 3rem 3rem;
+    background-color: var(--button-color);
+    border-radius: 50%;
+    font-size: 0;
+  }
+}
+
+@keyframes button-load {
+  0% {
+    width: 0;
+  }
+  15% {
+    width: 0;
+  }
+  30% {
+    width: 20rem;
+    height: 1rem;
+    font-size: 0;
+  }
+  40% {
+    width: 6rem;
+    height: 5rem;
+  }
+  41% {
+    width: 6rem;
+    height: 5rem;
+  }
+  44% {
+    font-size: 0;
+  }
+  45% {
+    padding-top: 1.5rem;
+    font-size: 2rem;
+  }
+  50% {
+    font-size: 2rem;
+  }
+  100% {
+    width: 6rem;
+    height: 5rem;
+    font-size: 2rem;
+    padding-top: 1.5rem;
+  }
+}
+
+@keyframes button-unload {
+  100% {
+    width: 0;
+  }
+  50% {
+    width: 0;
+  }
+  45% {
+    width: 20rem;
+    height: 1rem;
+    font-size: 0;
+  }
+  /* 44% {
+    width: 6rem;
+    height: 5rem;
+  }
+  41% {
+    width: 6rem;
+    height: 5rem;
+  } */
+  40% {
+    font-size: 0;
+  }
+  30% {
+    padding-top: 1.5rem;
+    font-size: 2rem;
+    width: 20rem;
+    height: 1rem;
+  }
+  29% {
+    width: 6rem;
+    height: 5rem;
+  }
+  15% {
+    font-size: 2rem;
+  }
+  0% {
+    width: 6rem;
+    height: 5rem;
+    font-size: 2rem;
+    padding-top: 1.5rem;
+  }
+}
