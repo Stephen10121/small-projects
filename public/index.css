@@ -2,6 +2,104 @@
   font-family: "Poppins", sans-serif;
 }
 
-a {
-  color: red;
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: azure;
+}
+
+header {
+  width: 100vw;
+  height: 6rem;
+  background-color: black;
+  color: #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+main {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-x: hidden;
+  /* overflow-y: auto; */
+}
+
+.card:first-child {
+  margin-top: 10rem;
+}
+
+.card:last-child {
+  margin-bottom: 5rem;
+}
+
+.card {
+  width: 20rem;
+  height: 20rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: box-shadow 0.25s linear;
+  color: black;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  display: grid;
+  grid-template-rows: 12rem 8rem;
+}
+
+.card section {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.b1 {
+  background-image: url("picture.svg");
+}
+
+.b2 {
+  background-image: url("picture1.svg");
+}
+
+.b3 {
+  background-image: url("picture2.svg");
+}
+
+.card div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card:hover {
+  box-shadow: rgb(0 0 0 / 35%) 8px 10px 15px;
+}
+
+.card div h2 {
+  border-bottom: 1px solid black;
+  display: inline;
+  width: fit-content;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+  font-size: 2rem;
 }
