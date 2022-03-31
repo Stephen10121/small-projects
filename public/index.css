@@ -1,11 +1,17 @@
 * {
   font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
   width: 100vw;
   height: 100vh;
+  display: grid;
+  grid-template-rows: 6rem auto;
   overflow-y: auto;
+  overflow-x: hidden;
   background-color: azure;
 }
 
@@ -18,9 +24,6 @@ header {
   align-items: center;
   justify-content: center;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 
 header h1 {
@@ -33,21 +36,12 @@ header h1 {
 main {
   width: 100vw;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(20rem, 1fr));
+  place-items: center;
+  padding-top: 2rem;
   gap: 2rem;
   overflow-x: hidden;
-  /* overflow-y: auto; */
-}
-
-.card:first-child {
-  margin-top: 10rem;
-}
-
-.card:last-child {
-  margin-bottom: 5rem;
 }
 
 .card {
