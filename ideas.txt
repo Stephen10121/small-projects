@@ -1,0 +1,3 @@
+Toast Notification.
+Walking animation.
+Chat icon.
