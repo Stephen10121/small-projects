@@ -60,7 +60,7 @@ button {
 }
 
 .showitBox {
-  background-color: rgba(54, 230, 171, 0.575);
+  background-color: rgba(54, 230, 171, 1);
   border-radius: 10px;
   width: 50%;
   height: 50%;
@@ -96,6 +96,7 @@ button {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.25s linear;
 }
 
 .addNode:hover {
