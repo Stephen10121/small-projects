@@ -1,0 +1,103 @@
+html {
+  font-size: 10px;
+}
+body {
+  background-color: #3f3f3f;
+}
+
+.node { 
+  width: 70px;
+  height: 70px;
+  border: 1px solid black;
+  background-color: rgb(54, 230, 171);
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.node img {
+  width: 70%;
+}
+
+.node h2 {
+  font-size: 1.5rem;
+  font-family: 'Poppins';
+}
+
+button {
+  z-index: 101;
+}
+
+.node-grid {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, 7rem);
+  padding: 10px;
+  gap: 10px;
+  place-items: center;
+  z-index: 0;
+}
+
+.showit {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  display: none;
+  border: none;
+  cursor: pointer;
+}
+
+.showitBox {
+  background-color: rgba(54, 230, 171, 0.575);
+  border-radius: 10px;
+  width: 50%;
+  height: 50%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  cursor: default;
+}
+
+.showitBox p {
+  font-size: 2rem;
+  font-family: 'Poppins';
+  font-weight: bold;
+  cursor: text;
+  user-select: text;
+}
+
+#ipAdd, #idNum {
+  font-weight: 100;
+}
+
+.addNode {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-family: "Poppins", sans-serif;
+  padding: 1rem 2rem;
+  background-color: rgba(36, 155, 115);
+  color: rgb(235, 235, 235);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.addNode:hover {
+  background-color: rgb(42, 177, 132);
+}
