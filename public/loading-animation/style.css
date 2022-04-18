@@ -1,14 +1,12 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 body {
     width: 100vw;
     height: 100vh;
     background-color: rgb(71, 143, 143);
 }
+
+:root {
+    --animation-time: 1.5s;
+    }
 
 .loader {
     width: 6rem;
@@ -33,3 +31,89 @@ body {
     50% { transform: rotate(120deg); }
     100% { transform: rotate(360deg); }
   }
+
+  .dots {
+    width: 6rem;
+    height: 6rem;
+    background: none;
+    position: relative;
+    }
+    .dotbox {
+    width: 6rem;
+    height: 6rem;
+    background: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
+    .dotbox div {
+    width: 0.65rem;
+    height: 0.65rem;
+    background: #03424d;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 45px;
+    }
+    
+    .dot1 {
+    animation: rotat var(--animation-time) linear infinite;
+    animation-delay: 0.25s;
+    }
+    .dot2 {
+    animation: rotat var(--animation-time) linear infinite;
+    animation-delay: 0.35s;
+    }
+    .dot3 {
+    animation: rotat var(--animation-time) linear infinite;
+    animation-delay: 0.45s;
+    }
+    .dot4 {
+    animation: rotat var(--animation-time) linear infinite;
+    animation-delay: 0.55s;
+    }
+    .dot5 {
+    animation: rotat var(--animation-time) linear infinite;
+    animation-delay: 0.65s;
+    }
+    
+    @keyframes rotat {
+    0% {
+    transform: rotate(0deg);
+    }
+    25% {
+    transform: rotate(100deg);
+    }
+    50% {
+    transform: rotate(180deg);
+    }
+    75% {
+    transform: rotate(240deg);
+    }
+    100% {
+    transform: rotate(360deg);
+    }
+    }
+
+.toggle {
+    position: absolute;
+    top: 10px;
+    background-color: #03424d;
+    border: none;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    color: rgb(71, 143, 143);
+    font-family: "Poppins", sans-serif;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    transition: background-color 0.25s linear;
+}
+
+.toggle:hover {
+    background-color: #03343d;
+}
+
+.hide {
+    display: none;
+}

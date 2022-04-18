@@ -14,6 +14,20 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     </head>
     <body class="center-element">
-        <div class="loader"></div>
+        <button class="toggle" onclick="toggle()">Toggle Loader</button>
+        <div id="l1" class="loader"></div>
+        <div id="l2" class="dots hide">
+            <div class="dot1 dotbox"><div></div></div>
+            <div class="dot2 dotbox"><div></div></div>
+            <div class="dot3 dotbox"><div></div></div>
+            <div class="dot4 dotbox"><div></div></div>
+            <div class="dot5 dotbox"><div></div></div>
+            </div>
     </body>
+    <script>
+        const toggle = () => {
+            document.querySelector("#l1").classList.toggle("hide");
+            document.querySelector("#l2").classList.toggle("hide");
+        }
+    </script>
 </html>
