@@ -62,19 +62,19 @@ body {
     }
     .dot2 {
     animation: rotat var(--animation-time) linear infinite;
-    animation-delay: 0.25s;
+    animation-delay: 0.05s;
     }
     .dot3 {
     animation: rotat var(--animation-time) linear infinite;
-    animation-delay: 0.35s;
+    animation-delay: 0.15s;
     }
     .dot4 {
     animation: rotat var(--animation-time) linear infinite;
-    animation-delay: 0.45s;
+    animation-delay: 0.25s;
     }
     .dot5 {
     animation: rotat var(--animation-time) linear infinite;
-    animation-delay: 0.55s;
+    animation-delay: 0.35s;
     }
     
     @keyframes rotat {
