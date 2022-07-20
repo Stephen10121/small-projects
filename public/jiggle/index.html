@@ -1,0 +1,66 @@
+<button onclick="doit(this)"/><span>Button</span></button>
+<style>
+button {
+/* Center part */
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+/* End center */
+border: none;
+color: black;
+background: none;
+font-size: 2rem;
+letter-spacing: 0.05em;
+padding: 10px 30px;
+/*
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+*/
+box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+        1px 1px 10px rgba(0, 0, 0, 0.2);
+      color: #6f6cde;
+border-radius: 10px;
+cursor: pointer;
+transition: 0.25s;
+}
+
+button:hover {
+letter-spacing: 0.1em;
+padding: 8px 30px;
+}
+
+button:focus {
+
+}
+
+.bro {
+animation: doit 0.3s linear;
+}
+
+@keyframes doit {
+0% {
+letter-spacing: 0.1em;
+padding: 10px 30px;
+}
+40% {
+letter-spacing:0.4em;
+padding: 5px 30px;
+}
+70% {
+letter-spacing:0.01em;
+padding: 15px 30px;
+}
+100% {
+letter-spacing: 0.05em;
+padding: 10px 30px;
+}
+}
+</style>
+<script>
+const doit = (e) => {
+e.classList.add("bro");
+setTimeout(() => {
+e.classList.remove("bro");
+}, 300);
+}
+</script>
