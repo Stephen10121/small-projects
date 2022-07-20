@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chat Box</title>
+        <link rel="shortcut icon" href="../logo.svg" type="image/x-icon">
+        <link rel="stylesheet" href="../reset.css">
+        <link rel="stylesheet" href="../def-styles.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="chat.js" defer></script>
+        <script src="script.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <p class="intro">Chat Thing that is based on LinkedIn's chat thing.</p>
+        <button id="show-chat" onclick="showChat()">Show Chat</button>
+        <section class="chat-part">
+            <section class="chatStreamBox" id="chatStreamBox">
+            </section>
+            <section class="chat-list" id="chat-list">
+                <div class="header">
+                    <p>Chat</p>
+                    <div class="buttons">
+                        <button id="minimize" title="Minimize" onclick="minimize()">&#8250;</button>
+                        <button title="Close" onclick="closechat()">&times;</button>
+                    </div>
+                </div>
+                <div class="main" id="chatto">
+                </div>
+            </section>
+        </section>
+    </body>
+</html>

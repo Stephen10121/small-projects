@@ -1,0 +1,307 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #8a8a8a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    gap: 2rem;
+}
+
+.intro {
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    color: rgb(77, 77, 77);
+}
+
+.chat-part {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+#show-chat {
+    font-size: 1.1rem;
+    font-family: Arial, sans-serif;
+    padding: 1rem;
+    background-color: #dfdfdf;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.25s linear, opacity 0.25s linear, visibility 0.25s linear;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#show-chat:hover {
+    background-color: #9e9e9e;
+}
+
+.chat-list {
+    width: 20rem;
+    height: 30rem;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: grid;
+    overflow: hidden;
+    grid-template-rows: 3rem auto;
+    transition: height 0.25s linear;
+}
+
+.minimize {
+    height: 3rem;
+    overflow: hidden;
+}
+
+.minimize .header {
+    border-radius: 10px;
+}
+
+.minimize #minimize {
+    transform: rotate(270deg);
+}
+
+.minimize .main {
+    overflow: hidden;
+}
+
+.minimize .main::-webkit-scrollbar {
+    width: 0;
+}
+
+.header {
+    width: 100%;
+    height: 3rem;
+    background-color: #dfdfdf;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header p {
+    font-size: 1.5rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.buttons button {
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    color: black;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.25s linear;
+}
+
+#minimize {
+    transform: rotate(90deg);
+    transition: transform 0.25s linear;
+}
+
+.buttons button:hover {
+    color: gray;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow: auto;
+    transition: height 0.25s linear;
+}
+
+.main-chat::-webkit-scrollbar,
+.main::-webkit-scrollbar {
+    width: 10px;
+}
+  
+  /* Track */
+  .main-chat::-webkit-scrollbar-track,
+  .main::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  .main-chat::-webkit-scrollbar-thumb,
+  .main::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  .main-chat::-webkit-scrollbar-thumb:hover,
+  .main::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+.user {
+    width: 100%;
+    height: 4rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #dfdfdf;
+    cursor: pointer;
+    transition: background-color 0.25s linear;
+}
+
+.user:hover {
+    background-color: #c7c7c7;
+}
+
+.user img {
+    height: 3rem;
+    border-radius: 50%;
+}
+
+.user p {
+    font-size: 1.15rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.chatStreamBox {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.chatStream {
+    width: 20rem;
+    height: 25rem;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: height 0.25s linear;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 3rem 19rem 3rem;
+}
+
+.input-send {
+    width: 100%;
+    height: 3rem;
+    display: grid;
+    padding: 0.2rem;
+    grid-template-columns: 2fr 1fr;
+}
+
+.input-send input {
+    font-family: "Poppins", sans-serif;
+    border: 2px solid black;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-right: none;
+    padding: 0.5rem;
+    transition: border 0.25s linear;
+}
+
+.input-send input:focus {
+    outline: none;
+    border: 2px solid rgb(85, 160, 221);
+    border-right: none;
+}
+
+.input-send button {
+    border: 2px solid black;
+    border-left: none;
+    background: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: border 0.25s linear;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.input-send button:hover {
+    border: 2px solid rgb(85, 160, 221);
+    border-left: none;
+}
+
+.input-send button img {
+    height: 100%;
+}
+
+.minimizeThread {
+    height: 3rem;
+}
+
+.minimizeThread #maximize {
+    display: block;
+}
+
+.minimizeThread #minimize {
+    display: none;
+}
+
+#maximize {
+    transform: rotate(270deg);
+    display: none;
+}
+
+.main-chat {
+    padding: 0.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow: auto;
+}
+
+.name {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.name img {
+    height: 100%;
+    border-radius: 50%;
+}
+
+.bubble {
+    width: 100%;
+}
+
+.bubble .them,
+.bubble .me {
+    padding: 0.5rem;
+    width: fit-content;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.them {
+    background-color: rgb(196, 196, 196);
+}
+
+.me {
+    background-color: rgb(85, 160, 221);
+    float: right;
+}
