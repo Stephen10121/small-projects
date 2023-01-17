@@ -1,4 +1,4 @@
-const chatListDict = {
+let chatListDict = {
     jeff: {
         name: "Jeff",
         avatar: "./profilePic/avatar1.jpg",
@@ -68,6 +68,9 @@ const chatListDict = {
             },
             {
                 me: "OK boomer"
+            },
+            {
+                me: "Begone boomer."
             }
         ]
     },

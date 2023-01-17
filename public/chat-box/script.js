@@ -6,6 +6,10 @@ const chatto = document.querySelector("#chatto");
 if (window.localStorage.getItem("chat") === "1") {
     chatList.classList.add("minimize");
 }
+let getChatDict = window.localStorage.getItem("chatDict");
+if (getChatDict !== undefined && getChatDict !== null) {
+    chatListDict = JSON.parse(window.localStorage.getItem("chatDict"));
+}
 
 chatto.innerHTML += `
     ${Object.keys(chatListDict).map((key) => {
@@ -47,6 +51,17 @@ const closeThread = (thread) => {
     document.querySelector(`#${thread}`).remove();
 }
 
+const sendMessage = ({ parentElement: {children} }, id) => {
+    chatListDict[id].chat.push({ me: children[0].value});
+    chatListDict[id].chat.push({ them: "This is an automatic reply."});
+    document.querySelector(`#${id} .main-chat`).innerHTML += `<div class="bubble"><div class="me">${children[0].value}</div></div>`;
+    window.localStorage.setItem("chatDict", JSON.stringify(chatListDict));
+    children[0].value = "";
+    setTimeout(() => {
+        document.querySelector(`#${id} .main-chat`).innerHTML += `<div class="bubble"><div class="them">This is an automatic reply.</div></div>`;
+    }, 1000);
+}
+
 const addThread = (threadid, threadName, threadPic) => {
     if (document.querySelector(`#${threadid}`) !== null) {
         return;
@@ -76,7 +91,7 @@ const addThread = (threadid, threadName, threadPic) => {
         </div>
         <div class="input-send">
             <input type="text" placeholder="Message">
-            <button title="Send"><img src="./send.svg" alt="Send"></button>
+            <button title="Send" onclick="sendMessage(this, '${threadid}')"><img src="./send.svg" alt="Send"></button>
         </div>
     </section>`;
 

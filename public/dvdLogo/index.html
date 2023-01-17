@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bouncing Dvd Logo</title>
+<meta property="og:title" content="Bouncing Dvd Logo" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://small.gruzservices.com/dvdLogo" />
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/DVD_logo.svg/512px-DVD_logo.svg.png" />
+<meta property="og:description" content="A bouncing Dvd Logo like in the old televisions." />
+<link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/DVD_logo.svg/512px-DVD_logo.svg.png" type="image/x-icon">
+<meta name="theme-color" content="#000000">
+
+<!-- Include this to make the og:image larger -->
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/DVD_logo.svg/512px-DVD_logo.svg.png"/>
+</div>
+</body>
+<style>
+:root {
+--background: red;
+--xPos: 0;
+--yPos: 0;
+}
+*,*::before,*::after {
+padding:0;
+margin:0;
+box-sizing:border-box;
+}
+body {
+position: relative;
+background-color: black;
+height: 100vh;
+width: 100vw;
+overflow: hidden;
+}
+div {
+background-color: var(--background);
+position: absolute;
+top: var(--yPos);
+left: var(--xPos);
+width:512px; 
+height: 261px;
+transform: top 10ms linear, left 10ms linear;
+}
+</style>
+<script>
+//const FPS = 29.97; //Actual FPS
+const body3 = document.body.getBoundingClientRect();
+const SPEED = 1;
+const root = document.querySelector(":root");
+let yNeg = false;
+let xNeg = false;
+let xPos = 0;
+let yPos = 0;
+let colors = ["#8A5BA4", "#75A45B", "#D02F34", "#2FD0CB", "#81C43B", "#7E3BC4"];
+let index = Math.floor(Math.random()*colors.length);
+root.style.setProperty('--background', `${colors[index]}`);
+
+function colorChange() {
+  let index2 = Math.floor(Math.random()*colors.length);
+  if (index2 === index) {
+  	colorChange();
+    return;
+  }
+  index = index2;
+  root.style.setProperty('--background', `${colors[index]}`);
+}
+
+setInterval(() => {
+const body2 = document.body.getBoundingClientRect();
+const box = document.querySelector("div").getBoundingClientRect();
+
+if (box.x+box.width >= body2.width) {
+xNeg=true;
+colorChange()
+}
+if (box.x <= 0) {
+xNeg=false;
+colorChange()
+}
+xPos=xNeg ? xPos-SPEED : xPos+SPEED;
+
+if (box.y+box.height >= body2.height) {
+yNeg=true;
+colorChange()
+}
+if (box.y <= 0) {
+yNeg=false;
+colorChange()
+}
+yPos=yNeg ? yPos-SPEED : yPos+SPEED;
+
+root.style.setProperty('--xPos', `${xPos}px`);
+root.style.setProperty('--yPos', `${yPos}px`);
+}, 10);
+
+</script>
+</html>

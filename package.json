@@ -2,9 +2,9 @@
   "name": "small-projects",
   "version": "1.0.0",
   "description": "Small Projects",
-  "main": "index.js",
+  "main": "smallProjects.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon smallProjects.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,8 @@
   "homepage": "https://github.com/Stephen10121/small-projects#readme",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "socket.io": "^4.5.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
