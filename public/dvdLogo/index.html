@@ -9,8 +9,6 @@
 <meta property="og:description" content="A bouncing Dvd Logo like in the old televisions." />
 <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/DVD_logo.svg/512px-DVD_logo.svg.png" type="image/x-icon">
 <meta name="theme-color" content="#000000">
-
-<!-- Include this to make the og:image larger -->
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
@@ -47,7 +45,7 @@ transform: top 10ms linear, left 10ms linear;
 }
 </style>
 <script>
-//const FPS = 29.97; //Actual FPS
+let INTERVAL = 10;
 const body3 = document.body.getBoundingClientRect();
 const SPEED = 1;
 const root = document.querySelector(":root");
@@ -58,7 +56,6 @@ let yPos = 0;
 let colors = ["#8A5BA4", "#75A45B", "#D02F34", "#2FD0CB", "#81C43B", "#7E3BC4"];
 let index = Math.floor(Math.random()*colors.length);
 root.style.setProperty('--background', `${colors[index]}`);
-
 function colorChange() {
   let index2 = Math.floor(Math.random()*colors.length);
   if (index2 === index) {
@@ -68,11 +65,9 @@ function colorChange() {
   index = index2;
   root.style.setProperty('--background', `${colors[index]}`);
 }
-
 setInterval(() => {
 const body2 = document.body.getBoundingClientRect();
 const box = document.querySelector("div").getBoundingClientRect();
-
 if (box.x+box.width >= body2.width) {
 xNeg=true;
 colorChange()
@@ -82,7 +77,6 @@ xNeg=false;
 colorChange()
 }
 xPos=xNeg ? xPos-SPEED : xPos+SPEED;
-
 if (box.y+box.height >= body2.height) {
 yNeg=true;
 colorChange()
@@ -92,10 +86,8 @@ yNeg=false;
 colorChange()
 }
 yPos=yNeg ? yPos-SPEED : yPos+SPEED;
-
 root.style.setProperty('--xPos', `${xPos}px`);
 root.style.setProperty('--yPos', `${yPos}px`);
-}, 10);
-
+}, INTERVAL);
 </script>
 </html>
