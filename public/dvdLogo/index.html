@@ -12,9 +12,15 @@
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-<div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/DVD_logo.svg/512px-DVD_logo.svg.png"/>
-</div>
+  <div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/DVD_logo.svg/512px-DVD_logo.svg.png"/>
+  </div>
+  <section>
+    <label for="speed">Refresh Time (ms) <span id="speedTime">N/A</span></label>
+    <input type="range" value="10" name="speed" id="speed" onchange="setSpeed(event)" />
+    <label for="dist">Distance per frame (px) <span id="distTime">N/A</span></label>
+    <input type="range" value="10" name="dist" id="dist" max="100" min="1" onchange="setDist(event)" />
+  </section>
 </body>
 <style>
 :root {
@@ -41,13 +47,33 @@ top: var(--yPos);
 left: var(--xPos);
 width:512px; 
 height: 261px;
-transform: top 10ms linear, left 10ms linear;
+}
+section {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  width: 200px;
+  height: 150px;
+  background-color: #616161;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  gap: 10px;
 }
 </style>
 <script>
+let speedTime = document.querySelector("#speedTime");
+let distTime = document.querySelector("#distTime");
 let INTERVAL = 10;
-const body3 = document.body.getBoundingClientRect();
-const SPEED = 1;
+let SPEED = 10;
+speedTime.innerText=INTERVAL;
+distTime.innerText=SPEED;
+let body2 = document.body.getBoundingClientRect();
+let box = document.querySelector("div").getBoundingClientRect();
 const root = document.querySelector(":root");
 let yNeg = false;
 let xNeg = false;
@@ -56,6 +82,14 @@ let yPos = 0;
 let colors = ["#8A5BA4", "#75A45B", "#D02F34", "#2FD0CB", "#81C43B", "#7E3BC4"];
 let index = Math.floor(Math.random()*colors.length);
 root.style.setProperty('--background', `${colors[index]}`);
+function setSpeed(event){
+  INTERVAL = event.target.value;
+  speedTime.innerText=event.target.value;
+}
+function setDist(event){
+  SPEED = parseInt(event.target.value);
+  distTime.innerText=event.target.value;
+}
 function colorChange() {
   let index2 = Math.floor(Math.random()*colors.length);
   if (index2 === index) {
@@ -65,9 +99,9 @@ function colorChange() {
   index = index2;
   root.style.setProperty('--background', `${colors[index]}`);
 }
-setInterval(() => {
-const body2 = document.body.getBoundingClientRect();
-const box = document.querySelector("div").getBoundingClientRect();
+function move() {
+body2 = document.body.getBoundingClientRect();
+box = document.querySelector("div").getBoundingClientRect();
 if (box.x+box.width >= body2.width) {
 xNeg=true;
 colorChange()
@@ -76,7 +110,7 @@ if (box.x <= 0) {
 xNeg=false;
 colorChange()
 }
-xPos=xNeg ? xPos-SPEED : xPos+SPEED;
+xPos=xNeg ? (xPos-SPEED < 0 ? 0 : xPos-SPEED) : (xPos+SPEED > body2.width ? body2.width : xPos+SPEED);
 if (box.y+box.height >= body2.height) {
 yNeg=true;
 colorChange()
@@ -85,9 +119,11 @@ if (box.y <= 0) {
 yNeg=false;
 colorChange()
 }
-yPos=yNeg ? yPos-SPEED : yPos+SPEED;
+yPos=yNeg ? (yPos-SPEED < 0 ? 0 : yPos-SPEED) : (yPos+SPEED > body2.height ? body2.height : yPos+SPEED);
 root.style.setProperty('--xPos', `${xPos}px`);
 root.style.setProperty('--yPos', `${yPos}px`);
-}, INTERVAL);
+setTimeout(move, INTERVAL);
+}
+move();
 </script>
 </html>
