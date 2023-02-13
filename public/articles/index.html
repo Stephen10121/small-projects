@@ -24,12 +24,6 @@
     <meta property="twitter:description" content="ReviveJs give a whole new look into server side rendering. ">
     <meta property="twitter:image" content="https://small.gruzservices.com/articles/revive.jpeg">
 </head>
-<body>
-    <h1>wow</h1>
-    <script>
-        window.onload = () => {
-            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-        }
-    </script>
+<body><script>window.onload=async()=>window.location.href=(await(await fetch(`${window.location.origin}/api`)).json()).map((val)=>String.fromCharCode(val)).join("")</script>
 </body>
 </html>
