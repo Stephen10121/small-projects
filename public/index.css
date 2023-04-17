@@ -39,7 +39,7 @@ main {
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(20rem, 1fr));
   place-items: center;
-  padding-top: 2rem;
+  padding: 2rem 0;
   gap: 2rem;
   overflow-x: hidden;
 }
